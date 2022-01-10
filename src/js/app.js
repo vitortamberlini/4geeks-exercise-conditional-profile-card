@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import "../style/index.css";
 
 /**
@@ -30,7 +32,7 @@ function render(variables = {}) {
   let background_display;
   let background_image;
 
-  if (variables.includeCover == false) {
+  if (variables.includeCover === false) {
     background_display = "none";
   } else {
     background_display = "";
@@ -41,23 +43,31 @@ function render(variables = {}) {
   background_image.style.display = background_display;
   document.querySelector("#profile-image").src = variables.avatarURL;
   background_image.src = variables.background;
-  // reset the website body with the new html output
-  // document.querySelector("#that-image-id").src = variables.background;
 
-  // document.querySelector("#widget_content").innerHTML = `<div class="widget">
-  //           ${cover}
-  //         <img src="${variables.avatarURL}" class="photo" />
-  //         <h1>Lucy Boilett</h1>
-  //         <h2>Web Developer</h2>
-  //         <h3>Miami, USA</h3>
-  //         <ul class="position-right">
-  //           <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-  //           <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-  //           <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-  //           <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
-  //         </ul>
-  //       </div>
-  //   `;
+  document.querySelector(
+    "#full-name"
+  ).textContent = `${variables.name} ${variables.lastname}`;
+
+  document.querySelector("#sm-bar").classList = variables.socialMediaPosition;
+
+  document.querySelector("#role").textContent = variables.role;
+
+  document.querySelector(
+    "#address"
+  ).textContent = `${variables.city}, ${variables.country}`;
+
+  document.querySelector(
+    "#link-twitter"
+  ).href = `https://twitter.com/${variables.twitter}`;
+  document.querySelector(
+    "#link-github"
+  ).href = `https://github.com/${variables.github}`;
+  document.querySelector(
+    "#link-instagram"
+  ).href = `https://instagram.com/${variables.instagram}`;
+  document.querySelector(
+    "#link-linkedin"
+  ).href = `https://linkedin.com/${variables.linkedin}`;
 }
 
 /**
